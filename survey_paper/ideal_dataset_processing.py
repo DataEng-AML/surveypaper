@@ -2,12 +2,12 @@
 """
 ### IDEAL Household Dataset
 This DAG is to:
-	(a)	Extract any IDEAL dataset using homeid as reference, in this case
+	(a)	Extract any IDEAL dataset using homeid as reference, in this case.
 		-1- Extract the files from PostgreSQL
 		-2- Take a subset of the data within a time interval
-	(b)	Process the data - split names
-	(c) 	Perform feature extraction
-	(d) 	Send combined output to PostgreSQL
+	(b)	Process the data - split names.
+	(c) 	Perform feature extraction.
+	(d) 	Send combined output to PostgreSQL.
 Note: Filenames with >63 characters were manually reduced in PostgrSQL to prevent long filename failures.
 	
 """

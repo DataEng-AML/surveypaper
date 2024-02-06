@@ -5,7 +5,6 @@ This DAG is to:
             by removing dash - from filename prior to loading into PostgreSQL.
       Note: beyond this, filenames with >63 characters were manually reduced in PostgrSQL to prevent long filename failures.
             
-            
 """
 from __future__ import annotations
 
