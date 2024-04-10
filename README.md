@@ -6,7 +6,7 @@ These have been labelled as follows
     *  The complete dataset is found at https://datashare.ed.ac.uk/handle/10283/3647 under Download all files
     *  household_sensors.zip direct link <br> https://datashare.ed.ac.uk/bitstream/handle/10283/3647/household_sensors.zip?sequence=25&isAllowed=y
 *   **Apache Airflow**: folder containing codes used to demonstrate the case study with Apache Airflow
-*   **TensorFlow Extended**: contains code for the case study with TensorFlow Extended (TFX)
+*   **TensorFlow Extended**: contain the code for the case study with TensorFlow Extended (TFX)
 *   remove_dash_filename.py: The code for case study with Apache Airflow to help with filenames for PostgreSQL database
 *   ideal_dataset_processing.py: The code for case study with Apache Airflow used for processing the data
 *   ideal_spark_survey_paper.ipynb: The code for case study with Apache Spark (PySpark in Jupyter Notebook)
