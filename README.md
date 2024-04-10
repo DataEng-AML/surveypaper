@@ -7,4 +7,4 @@ These have been labelled as follows:
     *  household_sensors.zip direct link <br> https://datashare.ed.ac.uk/bitstream/handle/10283/3647/household_sensors.zip?sequence=25&isAllowed=y
 *   **Apache Airflow**: folder containing codes used to demonstrate the case study with Apache Airflow
 *   **TensorFlow Extended**: contains the code for the case study with TensorFlow Extended (TFX)
-*   **PySpark**: the folder containing the code for Apache Spark using PySpark
+*   **PySpark**: the folder containing the code for Apache Spark using PySpark the Python API for Apache Spark
