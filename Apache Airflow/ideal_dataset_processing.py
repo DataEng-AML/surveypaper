@@ -3,7 +3,7 @@
 ### IDEAL Household Dataset
 This DAG is to:
 	(a)	Extract any IDEAL dataset using homeid as reference, in this case.
-		-1- Extract tables prefixed as home100 from PostgreSQL database
+		-1- Extract tables prefixed as home308 from PostgreSQL database
 		-2- Take a subset of the data within a time interval
 	(b)	Process the data - split names.
 	(c) 	Perform feature extraction.
@@ -85,7 +85,7 @@ with DAG(
 		
 		cursor = conn.cursor()
 
-		cursor.execute("SELECT table_name FROM information_schema.tables WHERE table_name LIKE 'home100%'")
+		cursor.execute("SELECT table_name FROM information_schema.tables WHERE table_name LIKE 'home308%'")
 		table_names = cursor.fetchall()
 
 				  
@@ -128,7 +128,7 @@ with DAG(
 		print("Number of rows, columns " + str(combined_df.shape))
 		
 		# to_csv local storage
-		homeid='/home100'
+		homeid='/home308'
 		export_location = '/home/abc/xyz/airflow_workspace/home_export'
 				
 		combined_df.to_csv(f"{export_location}"f"{homeid}"f'_combined_df', index=False)	
@@ -141,7 +141,7 @@ with DAG(
 	def split_df_for_processing():
 		
 		# file location, same address as the export location
-		import_location = '//home/abc/xyz/airflow_workspace/home_export/home100_combined_df'
+		import_location = '//home/abc/xyz/airflow_workspace/home_export/home308_combined_df'
 		preprocess_df = pd.read_csv(import_location)
 		preprocess_df = pd.DataFrame(preprocess_df)
 		
@@ -170,7 +170,7 @@ with DAG(
 		# to_csv local storage
 		processing_location = '/home/abc/xyz/airflow_workspace/home_processing'
 		
-		homeid='/home100'
+		homeid='/home308'
 		
 		for each, part in enumerate(parts_of_df):
 			part.to_csv(f"{processing_location}"f"{homeid}"f'_part_{each}.csv', index=False)
@@ -183,7 +183,7 @@ with DAG(
 	
 		split_df_location = '/home/abc/xyz/airflow_workspace/home_processing'
 		
-		homeid='home100'
+		homeid='home308'
 		
 		
 		# empty list to accommodate the processed sdf
@@ -236,7 +236,7 @@ with DAG(
 		# to_csv local storage
 		processed_column_location = '/home/abc/xyz/airflow_workspace/home_processed_column'
 		
-		homeidref='/home100'
+		homeidref='/home308'
 		
 		for each, processed_part in enumerate(split_df):
 			processed_part.to_csv(f"{processed_column_location}"f"{homeidref}"f'_processed_column_{each}.csv', index=False)
@@ -249,7 +249,7 @@ with DAG(
 	
 		processed_column_location = '/home/abc/xyz/airflow_workspace/home_processed_column'
 		
-		homeid='home100'
+		homeid='home308'
 		
 		# empty list to accommodate the processed sdf
 		each_processed_df = []
@@ -266,7 +266,7 @@ with DAG(
 		print(combined_processed_df.head())
 		
 		# send the combined processed df to different repositories
-		homeid='/home100'
+		homeid='/home308'
 		location = '/home/abc/xyz/airflow_workspace/home_combined'
 		
 		# as csv to local repository		
@@ -281,7 +281,7 @@ with DAG(
 		
 		# to_postgres
 		engine = create_engine("postgresql+psycopg2://username:password@localhost:5432/database")
-		combined_processed_df.to_sql('home100_combined_processed_df', engine, if_exists="replace", index=False)
+		combined_processed_df.to_sql('home308_combined_processed_df', engine, if_exists="replace", index=False)
 		
 		print("combined_processed_df successfully exported to postgres")
 
